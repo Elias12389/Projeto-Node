@@ -13,7 +13,7 @@ const connectToDatabase = async () => {
 };
 
 module.exports = connectToDatabase;
-/*Código original do Felipe Rocha
+/*Código de async e await que não funciona mais
 const mongoose = require("mongoose");
 
 const connectToDatabase = async () => {

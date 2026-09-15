@@ -1,5 +1,7 @@
 //Chamando o express
 const express = require("express");
+//Precisamos importar o useModules para pegar o modelo/esqueleto
+const UserModel = require("../src/models/user.model");
 
 //Inicializando o express
 const app = express();
@@ -21,6 +23,12 @@ app.get("/users", (req, res) => {
     },
   ];
   res.status(200).json(users);
+});
+
+app.post("/users", (req, res) => {
+  const user = UserModel.create(req.body);
+
+  res.status(201).json(user);
 });
 
 const port = 8080;
