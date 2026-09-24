@@ -9,7 +9,17 @@
     <div class="container">
       <div class="content">
         <!--Fazendo looping-->
-        <%if (users.length > 0) { %> <% users.forEach(user => {})%> 
+        <%if (users.length > 0) { %> <% users.forEach(user => {%> 
+        <h3 class="title">
+          <%= user.firstName %> <%=user.lastName %>
+        </h3>
+
+        <p><%=user.email%></p>
+
+      <!-- Tag do for each--><%})%>  <!--Tag do if--><%} else {%>
+        <p>não há usuários para exibir...</p>
+        <%}%>
+
         <!--Somente uma linha js para cada-->
       </div>
     </div>

@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 app.get("/views/users", async (req, res) => {
   const users = await UserModel.find();
   //Deixamos somente users, por conta da propriedade ter o mesmo nome da variável, senão seria {users: users}
-  res.render("index", users); //Rederiza o tipo de componente que está sendo específicado
+  res.render("index", { users }); //Rederiza o tipo de componente que está sendo específicado
 });
 
 app.get("/home", (req, res) => {
