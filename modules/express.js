@@ -6,19 +6,27 @@ const UserModel = require("../src/models/user.model");
 //Inicializando o express
 const app = express();
 
+app.set("view engine", "ejs"); //Importanto o ejs
+app.set("views", "src/views"); //Definindo o caminho da pasta
+
 //Faz com que sempre usemos json nas nossas requisições (tipando sempre como Json)
 app.use(express.json()); //trata-se de um middleware
 
 //Criando mais um middleware
 app.use((req, res, next) => {
-  console.log(`Request type: ${req.method}`) //Fala o tipo da requisição
-  console.log(`Content Type: ${req.headers["content-type"]}`) //Seu conteúdo interno
-  console.log(`Data: ${new Date()}`) //Tempo/data que a requisição está sendo feita
-
-
+  console.log(`Request type: ${req.method}`); //Fala o tipo da requisição
+  console.log(`Content Type: ${req.headers["content-type"]}`); //Seu conteúdo interno
+  console.log(`Data: ${new Date()}`); //Tempo/data que a requisição está sendo feita
 
   next(); //Deixa o express seguir o rumo dele pós a requisição
-})
+});
+
+//Precisamos colocar o endpoint correto
+app.get("/views/users", async (req, res) => {
+  const users = await UserModel.find();
+  //Deixamos somente users, por conta da propriedade ter o mesmo nome da variável, senão seria {users: users}
+  res.render("index", users); //Rederiza o tipo de componente que está sendo específicado
+});
 
 app.get("/home", (req, res) => {
   res.contentType("text/html");
