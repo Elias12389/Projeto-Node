@@ -7,7 +7,18 @@ const UserModel = require("../src/models/user.model");
 const app = express();
 
 //Faz com que sempre usemos json nas nossas requisições (tipando sempre como Json)
-app.use(express.json());
+app.use(express.json()); //trata-se de um middleware
+
+//Criando mais um middleware
+app.use((req, res, next) => {
+  console.log(`Request type: ${req.method}`) //Fala o tipo da requisição
+  console.log(`Content Type: ${req.headers["content-type"]}`) //Seu conteúdo interno
+  console.log(`Data: ${new Date()}`) //Tempo/data que a requisição está sendo feita
+
+
+
+  next(); //Deixa o express seguir o rumo dele pós a requisição
+})
 
 app.get("/home", (req, res) => {
   res.contentType("text/html");
@@ -25,7 +36,6 @@ app.get("/users", async (req, res) => {
     //Estamos somente passando uma string
     return res.status(500).send(error.message);
   }
-  res.status(200).json(users);
 });
 
 //End point para buscar um usuário por id
@@ -52,7 +62,7 @@ app.post("/users", async (req, res) => {
     const user = await UserModel.create(req.body);
 
     res.status(201).json(user);
-  } catch (erro) {
+  } catch (error) {
     res.status(500).send(error.message);
   }
 });
