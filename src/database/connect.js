@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const connectToDatabase = async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@projetonodejs.oatwjvo.mongodb.net/?appName=ProjetoNodeJs`,
+      `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@projetonodejs.oatwjvo.mongodb.net/projeto_node?appName=ProjetoNodeJs`,
     );
     console.log("Conexão com o banco de dados realizada com sucesso!");
   } catch (error) {

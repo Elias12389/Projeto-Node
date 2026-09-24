@@ -1,0 +1,136 @@
+{
+  "info": {
+    "_postman_id": "97749027-d69d-4f7f-8bf1-24a8987bd3cf",
+    "name": "Curso de Node.Js",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58448281",
+    "_collection_link": "https://go.postman.co/collection/58448281-97749027-d69d-4f7f-8bf1-24a8987bd3cf?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Criar usuário",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Erick\",\r\n    \"lastName\": \"Days\",\r\n    \"email\": \"ErickDays@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Atualizar usuário",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"DaysÉrico@gmail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/users/6ab303e6fa1dd3339e8f9b37",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users",
+            "6ab303e6fa1dd3339e8f9b37"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deletar um usuário",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"DaysÉrico@gmail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/users/6ab303e6fa1dd3339e8f9b37",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users",
+            "6ab303e6fa1dd3339e8f9b37"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar Usuários",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar Usuários por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/users/6ab303e6fa1dd3339e8f9b37",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users",
+            "6ab303e6fa1dd3339e8f9b37"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
